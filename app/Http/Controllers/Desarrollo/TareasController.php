@@ -194,7 +194,7 @@ class TareasController extends Controller
 
     function CorrigePrecios($id){
       $citas = Cita::select('id','material','id_materialobra','precio',
-      DB::RAW("(select precio from materialesobra where id_obra='".$id."' and( id=citas.id_materialobra or material=citas.material)) as preciomaterial"))
+      DB::RAW("(select precio from materialesobra where id_obra='".$id."' and( id=citas.id_materialobra or material=citas.material) limit 0,1) as preciomaterial"))
       ->where('id_obra',$id)->get();
 
       $obra=Obra::select('descuento')->where('id',$id)->first();
