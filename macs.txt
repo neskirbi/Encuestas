@@ -1,0 +1,10 @@
+LAPTOP-BGQI4V89	2.4G	80:30:49:6e:73:b5	192.168.1.72	Wifi	Activo	0day 00h 02min 09s	DHCP	0day 23h 53min 38s	
+4e:87:8c:68:89:5a	2.4G	4e:87:8c:68:89:5a	192.168.1.73	Wifi	Activo	0day 12h 52min 18s	IP Estática		
+HUAWEI_MediaPad_T5-b55981	2.4G	34:46:ec:ae:49:6a	192.168.1.69	Wifi	Activo	0day 14h 09min 11s	IP Estática		
+A71-de-Jesus-Antonio	5G	da:f6:a4:f2:f8:02	192.168.1.72	Wifi	Activo	0day 00h 06min 19s	IP Estática		
+Galaxy-S7	2.4G	2c:0e:3d:c6:15:19	192.168.1.66	Wifi	Activo	0day 14h 09min 41s	IP Estática		
+A51-de-Adrian	2.4G	8e:4f:91:89:f6:cc	192.168.1.71	Wifi	Activo	0day 00h 06min 34s	IP Estática		
+Nest-Audio	5G	ac:67:84:05:f3:a8	192.168.1.70	Wifi	Activo	0day 09h 46min 13s	IP Estática		
+42PhilipsRokuTV	5G	54:f1:5f:11:21:14	192.168.1.64	Wifi	Activo	0day 12h 39min 00s	DHCP	0day 19h 53min 18s	
+Google-Nest-Mini	2.4G	ac:67:84:42:cd:17	192.168.1.67	Wifi	Activo	0day 00h 26min 39s	DHCP	0day 23h 33min 23s	
+TFY-LX3	2.4G	c2:23:3b:cf:dc:54	192.168.1.68	Wifi	Activo	0day 13h 30min 43s	IP Estática		

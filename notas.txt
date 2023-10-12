@@ -1,0 +1,53 @@
+
+
+///////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+Mostrar una tabla de los contratos firmados por obras en la interface de director
+
+Reporte de polizasRC (cuantos tienen poliza)
+
+Reporte de los que deben y de los que han pagado
+
+
+
+////////////////////////////////////////
+
+Interface que alerte si una obra esta confirmada y no ha llevado material en un periodo de 30 dias despues de que se valido la obra y 10 dias despues de la fecha de inicio de obra
+
+
+Poner el reporte de obras de emiliano si hay contrato cargado y saldos 
+
+
+
+
+
+///////////////////////////////////////////
+Consulta estimacion por periodo 
+
+
+
+
+
+
+////////////////////////////
+
+Pagos choferes Pendiente
+
+
+
+SELECT id,id_chofer,nombrecompleto,matricula,cantidad,fechacita  FROM `citas` WHERE `matricula` LIKE '%LC56827%' 
+ORDER BY `citas`.`fechacita`  DESC limit 0,65
+
+
+
+
+select 
+(select razonsocial from generadores where id = (select id_generador from obras  where id = cit.id_obra)) as razonsocial,
+(select obra from obras  where id = cit.id_obra) as obra,
+SUM((cit.precio*cit.cantidad)+((cit.precio*cit.cantidad)*cit.iva/100)) as reciclaje from citas as cit
+where id_obra in (select id from obras) and confirmacion=1 GROUP by id_obra;

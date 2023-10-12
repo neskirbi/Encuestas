@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  @include('recepcion.header')
+  <title>{{GetSiglas(0)}} | Entradas</title>
+
+  
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+@include('toast.toasts')  
+<div class="wrapper">
+
+  <!-- Navbar -->
+ 
+  @include('recepcion.navigations.navigation')
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  @include('recepcion.sidebars.sidebar')
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+     
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Entradas</span>
+                <span class="info-box-number">{{$entradas_totales}}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fa fa-calendar-o" aria-hidden="true"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Pendientes</span>
+                <span class="info-box-number">{{$entradas_pendientes}}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Asistencia</span>
+                <span class="info-box-number">{{$entradas_confirmadas}}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fa fa-calendar-times-o" aria-hidden="true"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Falta</span>
+                <span class="info-box-number">{{$entradas_faltas}}</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <div class="row">
+        
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title"><i class="fa fa-truck" aria-hidden="true"></i> Salidas</h3>
+
+                <!--<div class="card-tools">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Filtros <i class="fa fa-sliders" aria-hidden="true"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" style="width:300px;">
+                      <form class="px-4 py-3" action="{{url('salidas')}}" method="GET">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-building"></i></span>
+                          </div>
+                          <input type="text" class="form-control" name="obra" id="obra" placeholder="Obra" @if(isset($filtros->obra)) value="{{$filtros->obra}}" @endif >
+                        </div>
+
+                        <div class="dropdown-divider"></div>
+                        <a href="cita" class="btn btn-default btn-sm">Limpiar</a>
+                        <button type="submit" class="btn btn-info btn-sm float-right">Aplicar</button>
+                        
+                      </form>
+                      
+                    </div>
+                  </div>                 
+                </div>-->
+                
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12" style="overflow-x:scroll;">
+                    @if(count($entradas))
+                    <table class="table table-hover text-nowrap">
+                      <thead>
+                        <tr>
+                        <th>Generador</th>
+                        <th>Obra</th>
+                        <th>Material</th>
+                        <th>Matrícula</th>
+                        <th>Fecha y hora</th>
+                        <th>Horario</th>         
+                        <th>Estatus</th>
+                        <th colspan="3">Opciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      
+                        @foreach($entradas as $entrada)
+                        <tr>
+                          
+                      
+                        </tr>
+                        @endforeach
+                
+                      </tbody>
+                    </table>
+                    @endif
+                  </div>
+                </div>
+                
+                
+                </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+              {{ //$entradas->appends($_GET)->links('pagination::bootstrap-4') }}
+              </div>
+            </div>
+            <!-- /.card -->
+          </div>
+          
+        </div>
+        <!-- /.row -->       
+
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+    
+  
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.1.0
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<!-- AdminLTE App, funcion de sidebar -->
+<script src="{{asset('dist/js/adminlte.js')}}"></script>
+
+@include('recepcion.footer')
+</body>
+</html>

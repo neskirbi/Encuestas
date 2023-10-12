@@ -1,0 +1,19 @@
+Jonathan que se apure con el manifiesto
+Mapa de sedema que se vea en el usuario de planta
+Trabajar un reporte final despues de que emiliano la valide como terminada
+Trabajar un candado de descarga de manifiestos
+
+
+-----------------------------------------------------------------------------
+Plantilla.
+En descripcion poner el material de mayor cantidad 
+En credito poner pospago
+contra prestacion o importe contratado = pagare
+
+
+
+Filtros por obras 
+Generadores poner total por obras en dinero
+trabajar modulo donde se vean los materiales por mes en dinero y tipo de material
+
+
