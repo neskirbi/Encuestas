@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     @include('header')
-    <title>{{GetSiglas(0)}} | Citas y Folios</title>
+    <title>Encuestas</title>
 </head>
 <style>
     .fondo {
