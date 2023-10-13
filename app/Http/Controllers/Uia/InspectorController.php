@@ -16,7 +16,9 @@ class InspectorController extends Controller
 
     function index(Request $filtros){
         $inspectores=Inspector::where('id_uia',GetId())
-        ->whereraw("inspector like '%".$filtros->inspector."%' or telefono like '%".$filtros->inspector."%'")  
+        ->whereraw("inspector like '%".$filtros->inspector."%'")  
+        ->whereraw("telefono like '%".$filtros->telefono."%'")  
+        
         ->paginate(15);
 
         return view('uia.inspectores.inspectores',['inspectores'=>$inspectores,'filtros'=>$filtros]);

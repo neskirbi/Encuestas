@@ -19,7 +19,7 @@ class EncuestaController extends Controller
 
     
     function index(){
-        $encuestas=Encuesta::paginate(15);
+        $encuestas=Encuesta::where('id_uia',GetId())->paginate(15);
         return view('uia.encuestas.encuestas',['encuestas'=>$encuestas]);
     }
 
@@ -37,6 +37,7 @@ class EncuestaController extends Controller
     function store(Request $request){
         if(!Encuesta::find($request->id)){
             $encuesta=new Encuesta();
+            $encuesta->id_uia = GetId();
             $encuesta->id=$request->id;
             $encuesta->save();
         }
@@ -67,13 +68,13 @@ class EncuestaController extends Controller
     function GuardarNombreEncuesta(Request $request,$id){
         if(!Encuesta::find($id)){
             $encuesta=new Encuesta();
+            $encuesta->id_uia = GetId(); 
             $encuesta->id=$id;
             $encuesta->save();
         }
 
         $encuesta=Encuesta::find($id);
         $encuesta->encuesta=$request->encuesta;
-        $encuesta->plantilla=$request->plantilla;
         $encuesta->save();
         return redirect('encuestas/create'.'?id='.$id)->with('success','Se guardo el nombre.');
     }

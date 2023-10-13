@@ -23,14 +23,11 @@ class InspeccionController extends Controller
     
     function index(Request $filtros){
         
-        $encuestas=Encuesta::orderby('encuesta','asc')->get();
+        $encuestas=Encuesta::where("id_uia",Auth::guard('inspectores')->user()->id_uia)->orderby('encuesta','asc')->get();
         
         $inspecciones=Inspeccion::select('id','created_at',
-        DB::RAW("(select encuesta from encuestas where id = inspecciones.id_encuesta) as encuesta"),
-        DB::RAW("(select plantilla from encuestas where id = inspecciones.id_encuesta) as plantilla"),
-        DB::RAW("(select GROUP_CONCAT(archivo separator ',') from adinspecciones where id_inspeccion = inspecciones.id) as adjuntos"))
-        //->where('inspecciones.obra','like','%'.$filtros->obra.'%')
-        //->where('inspecciones.razonsocial','like','%'.$filtros->generador.'%')
+        DB::RAW("(select encuesta from encuestas where id = inspecciones.id_encuesta) as encuesta"))
+        ->where('id_inspector',GetId())
         ->orderby('created_at','asc')->paginate(15);
 
         
@@ -62,6 +59,7 @@ class InspeccionController extends Controller
         
         
         $inspeccion->id=$id_inspeccion;
+        $inspeccion->id_inspector=GetId();
         $inspeccion->id_encuesta=$request->id_encuesta;
         
        

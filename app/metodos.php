@@ -179,26 +179,6 @@ function GetId(){
     if(Auth::guard('administradores')->check()){
         return Auth::guard('administradores')->user()->id;
     }  
-    
-    if(Auth::guard('finanzas')->check()){
-        return Auth::guard('finanzas')->user()->id;
-    }
-    
-    if(Auth::guard('vendedores')->check()){
-        return Auth::guard('vendedores')->user()->id;
-    }  
-
-    if(Auth::guard('clientes')->check()){
-        return Auth::guard('clientes')->user()->id;
-    }  
-
-    if(Auth::guard('recepciones')->check()){
-        return Auth::guard('recepciones')->user()->id;
-    }  
-
-    if(Auth::guard('dosificadores')->check()){
-        return Auth::guard('dosificadores')->user()->id;
-    } 
 
     if(Auth::guard('uias')->check()){
         return Auth::guard('uias')->user()->id;
