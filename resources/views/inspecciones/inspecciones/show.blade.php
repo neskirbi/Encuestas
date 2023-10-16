@@ -60,11 +60,7 @@
 
       <div class="container-fluid">
 
-        <div class="callout callout-info">
-
-            <h5>1.Datos del interesado</h5>
-
-        </div>
+       
 
         <form action="{{url('GuardarInforme')}}"  method="post" enctype='multipart/form-data'>
 
@@ -261,6 +257,79 @@
 
                 break;
 
+                case 5:
+                    $lon=0;
+                    $lat=0;
+
+                    $coor=explode(",",$respuestas[$pregunta->id]);
+                    if(count($coor)==2){
+                        $lat=$coor[0];
+                        $lon=$coor[1];
+                    }
+                    ?>
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <div class="form-group">
+
+                                <label for="pregunta">Ubiación</label>
+                                <script>
+
+                                    function initMap() {
+                                        var lat=("{{$lat}}");
+                                        var lon=("{{$lon}}");
+                                        console.log(lat+"   "+lon);
+
+                                            const myLatlng = { lat:  lat*1, lng: lon*1 };
+                                            const map = new google.maps.Map(document.getElementById("map"), {
+                                            zoom: 19,
+                                            center: myLatlng,
+                                            });
+                                            const marker = new google.maps.Marker({
+                                                position: myLatlng,
+                                                map
+                                            });
+                                            
+                                            // Create the initial InfoWindow.
+                                           /* let infoWindow = new google.maps.InfoWindow({
+                                            content: $('#obra').val(),
+                                            position: myLatlng,
+                                            title:"Encuesta"
+                                            });*/
+                                            infoWindow.open(map,marker);
+                                            // Configure the click listener.
+                                            /*map.addListener("click", (mapsMouseEvent) => {
+                                            // Close the current InfoWindow.
+                                            infoWindow.close();
+                                            // Create a new InfoWindow.
+                                            infoWindow = new google.maps.InfoWindow({
+                                                position: mapsMouseEvent.latLng,
+                                            });
+                                            var coordenadas=mapsMouseEvent.latLng.toJSON();
+                                            $('#latitud').val(coordenadas.lat);
+                                            $('#longitud').val(coordenadas.lng);
+                                            infoWindow.setContent('La obra se localiza:<br>Latitud:'+coordenadas.lat+'<br>Longitud:'+coordenadas.lng);
+                                            infoWindow.open(map);
+                                            });*/
+                                        }
+                                </script>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div calss="row">
+                        <div class="col-md-8">
+                            <div id="map" style=" height: 350px; width:100%;"></div>
+                        </div>
+                    </div>
+                    <?php
+                break;
+
             }
 
         }
@@ -400,6 +469,7 @@
 </script>
 
 
+@include('MapsApi')
 
 </body>
 

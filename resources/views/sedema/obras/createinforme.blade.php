@@ -29,9 +29,9 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <div class="callout callout-info">
-            <h5>1.Datos del interesado</h5>
-        </div>
+      
+      
+      
         <div class="row">
             <div class="col-md-12">
                 <div class="card">

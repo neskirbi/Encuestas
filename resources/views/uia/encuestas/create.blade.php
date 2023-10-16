@@ -102,9 +102,6 @@
 
 
 
-                        
-
-
 
                         <script>
 
@@ -483,6 +480,27 @@
                 html+='</div>';
 
             
+
+            break;
+
+
+            case 5:
+
+                console.log(opcion);
+
+                html+='<div class="row">';
+
+                html+='    <div class="col-md-12">';
+
+                html+='        <div class="form-group">';
+
+                html+='            <label for="pregunta">Ubicación </label>';
+
+                html+='        </div>';
+
+                html+='    </div>';
+
+                html+='</div>';
 
             break;
 

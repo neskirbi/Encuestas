@@ -41,11 +41,16 @@ class EncuestaController extends Controller
             $encuesta->id=$request->id;
             $encuesta->save();
         }
+
+        if(Pregunta::where('id_encuesta',$request->id)->where('tipo',$request->tipo)->first()){
+            return redirect('encuestas/create'.'?id='.$request->id)->with('error','No se pueden agregar mas 1 ubicación.');
+        }
+
        $pregunta=new Pregunta();
        $pregunta->id=GetUuid();
        $pregunta->tipo=$request->tipo;
        $pregunta->id_encuesta=$request->id;
-       $pregunta->pregunta=$request->pregunta;
+       $pregunta->pregunta=isset($request->pregunta) ? $request->pregunta : '';
        $pregunta->opciones=isset($request->opciones) ? $request->opciones : '';
        $pregunta->orden=$request->orden;
        $pregunta->save();
@@ -82,7 +87,7 @@ class EncuestaController extends Controller
     function UpdatePregunta(Request $request,$id){
         $pregunta=Pregunta::find($id);
         $pregunta->orden=$request->orden;
-        $pregunta->pregunta=$request->texto;
+        $pregunta->pregunta=isset($request->texto) ? $request->texto : '';
         $pregunta->opciones=isset($request->opciones) ? $request->opciones : '';
         $pregunta->save();
 
