@@ -42,7 +42,7 @@ class EncuestaController extends Controller
             $encuesta->save();
         }
 
-        if(Pregunta::where('id_encuesta',$request->id)->where('tipo',$request->tipo)->first()){
+        if(Pregunta::where('id_encuesta',$request->id)->where('tipo',$request->tipo)->first() && ($request->tipo*1)==5){
             return redirect('encuestas/create'.'?id='.$request->id)->with('error','No se pueden agregar mas 1 ubicación.');
         }
 
