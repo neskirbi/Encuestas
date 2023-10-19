@@ -80,7 +80,7 @@ Route::get('home', function () {
     } 
 
     if(Auth::guard('inspectores')->check()){
-        return redirect('inspecciones');
+        return redirect('encuestas');
     } 
     
     if(Auth::guard('dependencias')->check()){
@@ -907,7 +907,7 @@ Route::post('CargarObraCorreo', 'App\Http\Controllers\Publicidad\CorreoObraContr
  Route::post('EliminarInspector/{id}','App\Http\Controllers\Uia\InspectorController@EliminarInspector');
 
 
-Route::resource('encuestas','App\Http\Controllers\Uia\EncuestaController');
+Route::resource('formularios','App\Http\Controllers\Uia\EncuestaController');
 
  
 
@@ -924,7 +924,7 @@ Route::Post('UpdatePregunta/{id}','App\Http\Controllers\Uia\EncuestaController@U
 
 
  
-Route::resource('inspecciones','App\Http\Controllers\Inspeccion\InspeccionController');
+Route::resource('encuestas','App\Http\Controllers\Inspeccion\InspeccionController');
 
 Route::get('informe/{id}','App\Http\Controllers\Inspeccion\InspeccionController@Informe');
 

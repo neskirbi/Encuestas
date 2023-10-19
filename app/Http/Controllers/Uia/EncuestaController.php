@@ -26,7 +26,7 @@ class EncuestaController extends Controller
 
     function create(Request $request){
         if(!isset($request->id)){            
-            return redirect('encuestas/create'.'?id='.GetUuid())->with('success','Se creo nueva encuesta.');
+            return redirect('formularios/create'.'?id='.GetUuid())->with('success','Se creo nueva encuesta.');
         }        
 
         $encuesta=Encuesta::find($request->id);
@@ -43,7 +43,7 @@ class EncuestaController extends Controller
         }
 
         if(Pregunta::where('id_encuesta',$request->id)->where('tipo',$request->tipo)->first() && ($request->tipo*1)==5){
-            return redirect('encuestas/create'.'?id='.$request->id)->with('error','No se pueden agregar mas 1 ubicación.');
+            return redirect('formularios/create'.'?id='.$request->id)->with('error','No se pueden agregar mas 1 ubicación.');
         }
 
        $pregunta=new Pregunta();
@@ -55,7 +55,7 @@ class EncuestaController extends Controller
        $pregunta->orden=$request->orden;
        $pregunta->save();
 
-       return redirect('encuestas/create'.'?id='.$request->id)->with('success','Se creo nueva encuesta.');
+       return redirect('formularios/create'.'?id='.$request->id)->with('success','Se creo nueva encuesta.');
     }
 
 
@@ -66,7 +66,7 @@ class EncuestaController extends Controller
 
 
 
-        return redirect('encuestas/create'.'?id='.$id_encuesta)->with('error','Pregunta eliminada.');
+        return redirect('formularios/create'.'?id='.$id_encuesta)->with('error','Pregunta eliminada.');
 
     }
 
@@ -81,7 +81,7 @@ class EncuestaController extends Controller
         $encuesta=Encuesta::find($id);
         $encuesta->encuesta=$request->encuesta;
         $encuesta->save();
-        return redirect('encuestas/create'.'?id='.$id)->with('success','Se guardo el nombre.');
+        return redirect('formularios/create'.'?id='.$id)->with('success','Se guardo el nombre.');
     }
 
     function UpdatePregunta(Request $request,$id){

@@ -36,7 +36,7 @@
 
                                 <div class="col-md-12">
 
-                                    <form action="{{url('encuestas')}}/{{$pregunta->id}}" method="post">
+                                    <form action="{{url('formularios')}}/{{$pregunta->id}}" method="post">
 
                                     @csrf
 
@@ -56,7 +56,7 @@
 
                                 <div class="col-md-12">
 
-                                    <div class="callout callout-info">
+                                    <div class="callout callout-warning">
 
                                         <h5>{{$pregunta->pregunta}}</h5>
 
@@ -156,7 +156,7 @@
 
                                     <div class="col-md-12">
 
-                                        <form action="{{url('encuestas')}}/{{$pregunta->id}}" method="post">
+                                        <form action="{{url('formularios')}}/{{$pregunta->id}}" method="post">
 
                                         @csrf
 
@@ -290,7 +290,7 @@
 
                                     <div class="col-md-12">
 
-                                        <form action="{{url('encuestas')}}/{{$pregunta->id}}" method="post">
+                                        <form action="{{url('formularios')}}/{{$pregunta->id}}" method="post">
 
                                         @csrf
 
@@ -438,7 +438,7 @@
 
                                     <div class="col-md-12">
 
-                                        <form action="{{url('encuestas')}}/{{$pregunta->id}}" method="post">
+                                        <form action="{{url('formularios')}}/{{$pregunta->id}}" method="post">
 
                                         @csrf
 
@@ -565,7 +565,7 @@
     
                                     <div class="col-md-12">
     
-                                        <form action="{{url('encuestas')}}/{{$pregunta->id}}" method="post">
+                                        <form action="{{url('formularios')}}/{{$pregunta->id}}" method="post">
     
                                         @csrf
     

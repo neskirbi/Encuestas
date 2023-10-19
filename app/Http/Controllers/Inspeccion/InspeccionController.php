@@ -112,7 +112,7 @@ class InspeccionController extends Controller
         }
         
 
-        return redirect('inspecciones')->with('success', 'Se Generó el reporte.');
+        return redirect('encuestas')->with('success', 'Se Generó el reporte.');
 
        
 
@@ -158,7 +158,7 @@ class InspeccionController extends Controller
             return Redirect::back()->with('error', 'Error al guardar el archivo, comuníquese con soporte.');
         }
         
-        return redirect('inspecciones')->with('success', 'Se cargo el archivo.');
+        return redirect('encuestas')->with('success', 'Se cargo el archivo.');
 
     }
 }

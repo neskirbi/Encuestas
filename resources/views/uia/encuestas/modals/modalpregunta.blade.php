@@ -20,7 +20,7 @@
 
       <div class="modal-body">
 
-        <form action="{{url('encuestas')}}" method="post">
+        <form action="{{url('formularios')}}" method="post">
 
         @csrf
 

@@ -111,7 +111,7 @@
 
                         <div class="col-md-12">
 
-                            <div class="callout callout-info">
+                            <div class="callout callout-warning">
 
                                 <h5>{{$pregunta->pregunta}}</h5>
 
