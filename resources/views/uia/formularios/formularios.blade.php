@@ -60,11 +60,6 @@
 
       <div class="container-fluid">
 
-        
-      
-
-
-
         <div class="row">
 
           <div class="col-12">
@@ -73,7 +68,7 @@
 
               <div class="card-header">
 
-                <h3 class="card-title">Encuestas</h3>
+                <h3 class="card-title">Formulario</h3>
 
 
 
@@ -89,7 +84,17 @@
 
 
 
-                
+                <div class="row">
+
+                  <div class="col-md-12">
+
+                    <a href="{{url('formularios\create')}}" class="btn btn-info"> <i class="fas fa-plus"></i> Formulario </a>
+
+                  </div>
+
+                </div>
+
+
 
 
 
@@ -97,7 +102,7 @@
 
                   <div class="col-md-12" style="overflow-x:scroll;">
 
-                    @if(count($inspecciones))
+                    @if(count($encuestas))
 
                     <table class="table table-hover text-nowrap">
 
@@ -105,11 +110,10 @@
 
                         <tr>
 
-                          <th>Encuesta</th> 
-
-                          <th>Fecha</th>
+                          <th>Formulario</th> 
 
                           <th>Opciones</th>
+                          <th></th>
 
                         </tr>
 
@@ -119,57 +123,21 @@
 
                     
 
-                        @foreach($inspecciones as $inspeccion)
+                        @foreach($encuestas as $encuesta)
 
                         <tr>
 
-                          <td title="{{$inspeccion->encuesta}}">
+                          <td title="{{$encuesta->encuesta}}">{{($encuesta->encuesta)}}</td>
 
-                            {{strlen($inspeccion->encuesta) > 40 ? mb_substr($inspeccion->encuesta,0,29,"UTF-8") : $inspeccion->encuesta}}
-
-                          </td>
-
-                            
+                          
 
                           <td>
-
-                            {{FechaFormateadaTiempo($inspeccion->created_at)}}
+                            <a href="formularios/create?id={{$encuesta->id}}" class="btn btn-info" ><i class="fa fa-eye" aria-hidden="true"></i> Revisar</a>
 
                           </td>
 
                           <td>
-
-                            <a href="{{url('encuestas')}}/{{$inspeccion->id}}" class="btn btn-info"> <i class="fas fa-eye"></i> Revisar</a>                            
-
-                          </td>
-
-
-
-                         
-
-
-
-                          <td>
-
-                            <?php
-
-                              $adjuntos=explode(',',$inspeccion->adjuntos);
-
-                              
-
-                            ?>
-
-
-
-                            @foreach($adjuntos as $adjunto)
-
-                            @if(file_exists(public_path('documentos/inspecciones/adjuntos').'/'.$adjunto) && $adjunto!='')
-
-                            <a href="{{asset('documentos/inspecciones/adjuntos').'/'.$adjunto}}"  target="_blank"><img src="https://static.vecteezy.com/system/resources/previews/000/644/844/original/vector-pdf-icon-symbol-sign.jpg" width="50px" alt="{{asset('documentos/inspecciones/adjuntos/').$adjunto.'pdf'}}"></a>
-
-                            @endif
-
-                            @endforeach
+                            <a href="{{url('EliminarEncuesta')}}/{{$encuesta->id}}" class="btn btn-danger" ><i class="fa fa-times" aria-hidden="true"></i> Eliminar</a>
 
                           </td>
 
@@ -201,7 +169,7 @@
 
               <div class="card-footer">
 
-              {{ $inspecciones->appends($_GET)->links('pagination::bootstrap-4') }}
+              {{ $encuestas->appends($_GET)->links('pagination::bootstrap-4') }}
 
               </div>
 
@@ -212,6 +180,12 @@
           </div>
 
         </div>
+
+
+
+        
+        
+        
 
         <!-- /.row -->
 

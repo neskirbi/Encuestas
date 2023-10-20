@@ -78,7 +78,21 @@
 
 
 
-        
+          <li class="nav-item">
+
+            <a href="{{url('formularios')}}" class="nav-link">
+
+            <i class="nav-icon fa fa-file-text" aria-hidden="true"></i>
+
+              <p>
+
+                Formularios
+
+              </p>
+
+            </a>
+
+          </li>
 
 
 
@@ -100,25 +114,29 @@
 
           </li>
 
-          
-
-          
 
           <li class="nav-item">
 
-            <a href="{{url('formularios')}}" class="nav-link">
+            <a href="{{url('encuestasadm')}}" class="nav-link">
 
             <i class="nav-icon fa fa-file-text" aria-hidden="true"></i>
 
               <p>
 
-                Formularios
+                Encuestas
 
               </p>
 
             </a>
 
           </li>
+
+
+          
+
+          
+
+         
 
 
 

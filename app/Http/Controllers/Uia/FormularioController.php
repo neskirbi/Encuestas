@@ -6,12 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Redirect;
 use App\Models\Encuesta;
-use App\Models\Inspeccion;
 use App\Models\Pregunta;
-use App\Models\Respuesta;
 use App\Models\Obra;
 
-class EncuestaController extends Controller
+class FormularioController extends Controller
 {
 
     
@@ -21,16 +19,10 @@ class EncuestaController extends Controller
 
     
     function index(){
-        
-
-        $inspecciones=Encuesta::select('inspecciones.id','inspecciones.created_at','encuestas.encuesta')
-        ->join('inspecciones', 'inspecciones.id_encuesta','=','encuestas.id')
-        ->where('id_uia',GetId())
-        ->orderby('created_at','asc')
-        ->paginate(15);
+        $encuestas=Encuesta::where('id_uia',GetId())->paginate(15);
 
 
-        return view('uia.encuestas.encuestas',['inspecciones'=>$inspecciones]);
+        return view('uia.formularios.formularios',['encuestas'=>$encuestas]);
     }
 
 
@@ -41,7 +33,7 @@ class EncuestaController extends Controller
 
         $encuesta=Encuesta::find($request->id);
         $preguntas=Pregunta::where('id_encuesta',$request->id)->orderby('orden','asc')->get();
-        return view('uia.encuestas.create',['encuesta'=>$encuesta,'preguntas'=>$preguntas,'id'=>$request->id]);
+        return view('uia.formularios.create',['encuesta'=>$encuesta,'preguntas'=>$preguntas,'id'=>$request->id]);
     }
 
     function store(Request $request){
@@ -66,31 +58,6 @@ class EncuestaController extends Controller
        $pregunta->save();
 
        return redirect('formularios/create'.'?id='.$request->id)->with('success','Se creo nueva encuesta.');
-    }
-
-
-    function show($id){
-        //return $id;
-        $inspeccion=Inspeccion::find($id);
-        $encuesta=Encuesta::find($inspeccion->id_encuesta);
-        $preguntas=Pregunta::where('id_encuesta',$inspeccion->id_encuesta)->orderby('orden','asc')->get();
-        $respuestas=array();
-        for($i=0;$i<count($preguntas);$i++){
-            $respuestas[$preguntas[$i]->id]=$this->GetRespuesta($preguntas[$i]->id,$id);
-        }
-
-        return view('uia.encuestas.show',['inspeccion'=>$inspeccion,'encuesta'=>$encuesta,'preguntas'=>$preguntas,'respuestas'=>$respuestas,'id_inspeccion'=>$id]);
-    }
-
-
-    function GetRespuesta($id_pregunta,$id_inspeccion){
-        //return $id_inspeccion.'        '.$id_pregunta;
-        $respuesta = Respuesta::where('id_pregunta',$id_pregunta)->where('id_inspeccion',$id_inspeccion)->first();
-        if(!$respuesta){
-            return '' ;
-        }
-        return $respuesta->respuesta;
-
     }
 
 
@@ -132,7 +99,7 @@ class EncuestaController extends Controller
 
     function EliminarEncuesta($id){
         $encuesta=Encuesta::find($id);
-        return view('uia.encuestas.destroy',['encuesta'=>$encuesta]);
+        return view('uia.formularios.destroy',['encuesta'=>$encuesta]);
     }
 
     function DestroyEncuesta($id){

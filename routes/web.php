@@ -907,14 +907,18 @@ Route::post('CargarObraCorreo', 'App\Http\Controllers\Publicidad\CorreoObraContr
  Route::post('EliminarInspector/{id}','App\Http\Controllers\Uia\InspectorController@EliminarInspector');
 
 
-Route::resource('formularios','App\Http\Controllers\Uia\EncuestaController');
+Route::resource('formularios','App\Http\Controllers\Uia\FormularioController');
 
+Route::get('EliminarEncuesta/{id}','App\Http\Controllers\Uia\FormularioController@EliminarEncuesta');
+Route::get('DestroyEncuesta/{id}','App\Http\Controllers\Uia\FormularioController@DestroyEncuesta');
  
 
 
-Route::Post('GuardarNombreEncuesta/{id}','App\Http\Controllers\Uia\EncuestaController@GuardarNombreEncuesta');
+Route::Post('GuardarNombreEncuesta/{id}','App\Http\Controllers\Uia\FormularioController@GuardarNombreEncuesta');
 
-Route::Post('UpdatePregunta/{id}','App\Http\Controllers\Uia\EncuestaController@UpdatePregunta');
+Route::Post('UpdatePregunta/{id}','App\Http\Controllers\Uia\FormularioController@UpdatePregunta');
+
+Route::resource('encuestasadm','App\Http\Controllers\Uia\EncuestaController');
 
 
 
