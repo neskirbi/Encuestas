@@ -68,25 +68,13 @@
 
               <div class="card-header">
 
-                <h3 class="card-title">Encuestas</h3>
-
-
-
-                
-
-                
+                <h3 class="card-title">Encuestas</h3>                
 
               </div>
 
               <!-- /.card-header -->
 
               <div class="card-body">
-
-
-
-                
-
-
 
                 <div class="row">
 
@@ -102,7 +90,7 @@
 
                           <th>Encuesta</th> 
 
-                          <th>Opciones</th>
+                          <th colspan="2">Opciones</th>
 
                         </tr>
 
@@ -118,14 +106,12 @@
 
                           <td title="{{$encuesta->encuesta}}">{{($encuesta->encuesta)}}</td>
 
-                          
+                          <td>
+                            <a href="{{url('informe')}}/{{$encuesta->id}}" target="_blank" class="btn btn-info"> <i class="fas fa-plus"></i> Encuestar</a>
+                          </td>
 
                           <td>
-
-                          <a href="{{url('informe')}}/{{$encuesta->id}}" class="btn btn-info"> <i class="fas fa-plus"></i> Encuestar</a>
-
-                            
-
+                            <a href="{{url('informe')}}/{{$encuesta->id}}/{{GetId()}}" target="_blank" class="">  {{url('informe')}}/{{$encuesta->id}}/{{GetId()}}</a>
                           </td>
 
                           

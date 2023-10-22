@@ -36,17 +36,21 @@ class InspeccionController extends Controller
 
 
     function Informe($id){
-        /*$obra=Obra::select('obras.id','obras.obra','obras.calle','obras.numeroext','obras.fechainicio','obras.fechafin',
-        'obras.numeroint', 'obras.colonia', 'obras.cp', 'obras.municipio', 'obras.entidad',
-        db::raw("(select razonsocial from generadores  where id = obras.id_generador) as razonsocial"),
-        db::raw("(select concat(nombresrepre,' ',apellidosrepre,' ',nombresfisica,' ',apellidosfisica ) from generadores  where id = obras.id_generador) as repre"))
-        ->where('obras.id',$id)
-        ->first();*/
+        
 
         $encuesta=Encuesta::find($id);
         
         $preguntas=Pregunta::where('id_encuesta',$id)->orderby('orden','asc')->get();
         return view('inspecciones.inspecciones.create',['encuesta'=>$encuesta,'preguntas'=>$preguntas,'id_encuesta'=>$id]);
+    }
+
+
+    function InformeLink($id,$id_inspector){        
+
+        $encuesta=Encuesta::find($id);
+        
+        $preguntas=Pregunta::where('id_encuesta',$id)->orderby('orden','asc')->get();
+        return view('inspecciones.inspecciones.create_link',['encuesta'=>$encuesta,'preguntas'=>$preguntas,'id_encuesta'=>$id,'id_inspector'=>$id_inspector]);
     }
 
 
@@ -59,7 +63,13 @@ class InspeccionController extends Controller
         
         
         $inspeccion->id=$id_inspeccion;
-        $inspeccion->id_inspector=GetId();
+
+        if(isset($request->id_inspector)){
+            $inspeccion->id_inspector=$request->id_inspector;
+        }else{            
+            $inspeccion->id_inspector=GetId();
+        }
+
         $inspeccion->id_encuesta=$request->id_encuesta;
         
        
@@ -111,8 +121,13 @@ class InspeccionController extends Controller
             }
         }
         
+        if(isset($request->id_inspector)){
+            return redirect('Gracias');
+        }else{            
+            return redirect('encuestas')->with('success', 'Se generó la encuesta.');
+        }
 
-        return redirect('encuestas')->with('success', 'Se Generó el reporte.');
+        
 
        
 

@@ -932,6 +932,8 @@ Route::resource('encuestas','App\Http\Controllers\Inspeccion\InspeccionControlle
 
 Route::get('informe/{id}','App\Http\Controllers\Inspeccion\InspeccionController@Informe');
 
+Route::get('informe/{id}/{id_inspector}','App\Http\Controllers\Inspeccion\InspeccionController@InformeLink');
+
 Route::Post('GuardarInforme','App\Http\Controllers\Inspeccion\InspeccionController@GuardarInforme');
 
 
