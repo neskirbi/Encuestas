@@ -94,6 +94,10 @@ Route::get('home', function () {
     return view('home');
 });
 
+Route::get('gracias',function(){
+    return view('gracias');
+});
+
 
 
 /**

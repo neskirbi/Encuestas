@@ -120,13 +120,11 @@
                 <table border="1" style="border-collapse: collapse;" class="probable100">                   
 
                     <tr>
-                        <td colspan="2">GÉNERO DEL EDIFICIO:</td>
                         <td colspan="2">SUPERFICIE DE CONSTRUCCIÓN Ó SUPERFICIE A INTERVENIR:</td>
                     </tr>
                                      
 
                     <tr>
-                        <td colspan="2">&nbsp;</td>
                         <td colspan="2"><b>{{$cita->cantidadobra}} m<sup>2</sup></b> </td>
                     </tr>
 
