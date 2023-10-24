@@ -86,7 +86,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <a class="btn btn-info" href="{{url('formularios')}}">  Cancelar</a>                                    
-                                    <a class="btn btn-danger float-right" href="{{url('DestroyEncuesta')}}/{{$encuesta->id}}"> </i> Eliminar</a>
+                                    <a class="btn btn-danger float-right" href="{{url('DestroyFormulario')}}/{{$encuesta->id}}"> </i> Eliminar</a>
                                 </div>
                             </div>
                         </div>

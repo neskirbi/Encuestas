@@ -109,7 +109,7 @@
 
                           <th>Fecha</th>
 
-                          <th>Opciones</th>
+                          <th colspan="2">Opciones</th>
 
                         </tr>
 
@@ -140,6 +140,12 @@
                           <td>
 
                             <a href="{{url('encuestas')}}/{{$inspeccion->id}}" class="btn btn-info"> <i class="fas fa-eye"></i> Revisar</a>                            
+
+                          </td>
+
+                          <td>
+
+                            <a href="{{url('EliminarEncuesta')}}/{{$inspeccion->id}}" class="btn btn-danger"> <i class="fas fa-times"></i> Eliminar</a>                            
 
                           </td>
 

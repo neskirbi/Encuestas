@@ -137,7 +137,7 @@
                           </td>
 
                           <td>
-                            <a href="{{url('EliminarEncuesta')}}/{{$encuesta->id}}" class="btn btn-danger" ><i class="fa fa-times" aria-hidden="true"></i> Eliminar</a>
+                            <a href="{{url('EliminarFormulario')}}/{{$encuesta->id}}" class="btn btn-danger" ><i class="fa fa-times" aria-hidden="true"></i> Eliminar</a>
 
                           </td>
 

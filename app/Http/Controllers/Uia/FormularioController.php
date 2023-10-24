@@ -67,7 +67,6 @@ class FormularioController extends Controller
         $pregunta->delete();
 
 
-
         return redirect('formularios/create'.'?id='.$id_encuesta)->with('error','Pregunta eliminada.');
 
     }
@@ -97,12 +96,12 @@ class FormularioController extends Controller
         
     }
 
-    function EliminarEncuesta($id){
+    function EliminarFormulario($id){
         $encuesta=Encuesta::find($id);
         return view('uia.formularios.destroy',['encuesta'=>$encuesta]);
     }
 
-    function DestroyEncuesta($id){
+    function DestroyFormulario($id){
         $encuesta=Encuesta::find($id);
         
         $encuesta->delete();

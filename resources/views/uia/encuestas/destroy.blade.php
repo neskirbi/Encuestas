@@ -64,7 +64,7 @@
 
         <div class="callout callout-danger">
 
-            <h5>Eliminar: {{$encuesta->encuesta}} ?</h5>
+            <h5>Eliminar: Encuesta </h5>
 
         </div>
 
@@ -85,8 +85,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <a class="btn btn-info" href="{{url('formularios')}}">  Cancelar</a>                                    
-                                    <a class="btn btn-danger float-right" href="{{url('DestroyEncuesta')}}/{{$encuesta->id}}"> </i> Eliminar</a>
+                                    <a class="btn btn-info" href="{{url('encuestasadm')}}">  Cancelar</a>                                    
+                                    <a class="btn btn-danger float-right" href="{{url('DestroyEncuesta')}}/{{$inspeccion->id}}"> </i> Eliminar</a>
                                 </div>
                             </div>
                         </div>
