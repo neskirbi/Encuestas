@@ -153,7 +153,8 @@
 
                                 <label for="pregunta">{{$pregunta->pregunta}}</label>
 
-                                <input disabled data-invalido="true" type="text" name="pregunta[]" id="pregunta"  class="form-control" aria-invalid="false" value="{{$respuestas[$pregunta->id]}}">
+                                <textarea disabled required  name="pregunta[]" id="pregunta"  class="form-control" aria-invalid="false">{{$respuestas[$pregunta->id]}}</textarea>
+                                
 
                             </div>
 

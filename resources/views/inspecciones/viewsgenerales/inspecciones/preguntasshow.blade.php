@@ -180,7 +180,7 @@
 
                                             <label for="pregunta">{{$pregunta->pregunta}}</label>
 
-                                            <input required data-invalido="true" type="text" name="pregunta[]" id="pregunta"  class="form-control" aria-invalid="false">
+                                            <textarea required  name="pregunta[]" id="pregunta"  class="form-control" aria-invalid="false"></textarea>
 
                                         </div>
 

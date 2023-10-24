@@ -139,7 +139,7 @@
 
                           <td>
 
-                            <a href="{{url('encuestas')}}/{{$inspeccion->id}}" class="btn btn-info"> <i class="fas fa-eye"></i> Revisar</a>                            
+                            <a href="{{url('encuestasadm')}}/{{$inspeccion->id}}" class="btn btn-info"> <i class="fas fa-eye"></i> Revisar</a>                            
 
                           </td>
 

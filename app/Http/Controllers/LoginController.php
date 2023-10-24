@@ -179,6 +179,7 @@ class LoginController extends Controller
 
 
     function Login(Request $request){
+        /*
         $director = Director::where([
             'mail' => $request->mail
         ])->first();
@@ -203,6 +204,7 @@ class LoginController extends Controller
             Logueo(GetId());
             return redirect('home');
         }
+        */
         
 
         $uia = Uia::where([

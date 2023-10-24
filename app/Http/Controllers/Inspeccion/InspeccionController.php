@@ -122,7 +122,7 @@ class InspeccionController extends Controller
         }
         
         if(isset($request->id_inspector)){
-            return redirect('Gracias');
+            return redirect('gracias');
         }else{            
             return redirect('encuestas')->with('success', 'Se generó la encuesta.');
         }
