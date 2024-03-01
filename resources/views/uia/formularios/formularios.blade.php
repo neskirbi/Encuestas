@@ -114,6 +114,8 @@
 
                           <th>Opciones</th>
                           <th></th>
+                          
+                          <th></th>
 
                         </tr>
 
@@ -133,6 +135,11 @@
 
                           <td>
                             <a href="formularios/create?id={{$encuesta->id}}" class="btn btn-info" ><i class="fa fa-eye" aria-hidden="true"></i> Revisar</a>
+
+                          </td>
+
+                          <td>
+                            <a href="formularios/Copy/{{$encuesta->id}}" class="btn btn-warning" ><i class="fa fa-print" aria-hidden="true"></i> Copiar</a>
 
                           </td>
 

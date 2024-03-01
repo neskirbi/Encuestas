@@ -917,6 +917,9 @@ Route::get('EliminarFormulario/{id}','App\Http\Controllers\Uia\FormularioControl
 
 Route::get('DestroyFormulario/{id}','App\Http\Controllers\Uia\FormularioController@DestroyFormulario');
 
+Route::get('formularios/Copy/{id}','App\Http\Controllers\Uia\FormularioController@Copy');
+Route::post('Copiar/{id}','App\Http\Controllers\Uia\FormularioController@Copiar');
+
 Route::get('EliminarEncuesta/{id}','App\Http\Controllers\Uia\EncuestaController@EliminarEncuesta'); 
 Route::get('DestroyEncuesta/{id}','App\Http\Controllers\Uia\EncuestaController@DestroyEncuesta');
 

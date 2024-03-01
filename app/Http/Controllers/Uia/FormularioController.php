@@ -111,4 +111,45 @@ class FormularioController extends Controller
         return redirect('formularios')->with('error','Encuesta eliminada.');
 
     }
+
+
+    
+    function Copy($id){
+        $encuesta=Encuesta::find($id);
+        return view('uia.formularios.copy',['encuesta'=>$encuesta,'id'=>$id]);
+    }
+
+
+    function Copiar(Request $request,$id){
+        
+        $formulario=Encuesta::find($id);
+
+        $iden=GetUuid(); 
+        $encuesta=new Encuesta();
+        $encuesta->id_uia = GetId(); 
+        $encuesta->encuesta=$request->encuesta;
+        $encuesta->id=$iden;
+        $encuesta->save();
+        
+
+        $pres=Pregunta::where('id_encuesta',$formulario->id)->get();
+
+        foreach($pres as $pre){
+
+            $pregunta=new Pregunta();
+            $pregunta->id=GetUuid();
+            $pregunta->id_encuesta=$iden;
+            $pregunta->tipo=$pre->tipo;
+            $pregunta->pregunta=$pre->pregunta;
+            $pregunta->opciones=$pre->opciones;
+            $pregunta->orden=$pre->orden;
+            $pregunta->save();
+        }
+
+        return redirect('formularios')->with('success','Encuesta copiada.');
+
+
+    }
+
+    
 }
