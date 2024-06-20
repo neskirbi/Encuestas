@@ -90,7 +90,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="encuesta">Encuesta</label>                                
-                                    <input type="text" class="form-control" name="encuesta" placeholder="Encuesta">
+                                    <input required type="text" class="form-control" name="encuesta" placeholder="Encuesta">
                                 </div>
                             </div>
                         </div>
